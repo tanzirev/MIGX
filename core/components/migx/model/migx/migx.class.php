@@ -1603,7 +1603,7 @@ class Migx {
                     }
                     foreach ($options as $option) {
                         if ($option['_renderer'] == 'this.renderChunk') {
-                            $row['_this.value'] = $value;
+                            if (empty($row['_this.value'])) $row['_this.value'] = $value;
                             $properties = $row;
                             $properties['_request'] = $_REQUEST;
                             $renderchunktpl = $this->modx->getOption('_renderchunktpl', $option, '');
